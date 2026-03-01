@@ -7,11 +7,16 @@ const achievements = [
 ];
 
 const team = [
-  { nick: "PHANTOM", role: "IGL / Капитан", country: "RU" },
-  { nick: "SHADE", role: "Entry Fragger", country: "RU" },
-  { nick: "VORTEX", role: "AWPer", country: "UA" },
-  { nick: "CIPHER", role: "Support", country: "KZ" },
-  { nick: "BLAZE", role: "Lurker", country: "RU" },
+  { nick: "amullet", role: "Rifler · CEO", country: "🇺🇦", lvl: 8 },
+  { nick: "xinxed", role: "Rifler", country: "🇷🇺", lvl: 9 },
+  { nick: "kironixx", role: "Rifler", country: "🇷🇺", lvl: 8 },
+  { nick: "s1per", role: "Rifler", country: "🇷🇺", lvl: 8 },
+  { nick: "for4ward", role: "AWPer", country: "🇷🇺", lvl: 8 },
+];
+
+const bench = [
+  { nick: "hulsey", role: "Rifler", country: "🇷🇺", lvl: 7 },
+  { nick: "winda", role: "Rifler", country: "🇷🇺", lvl: 8 },
 ];
 
 export default function Index() {
@@ -49,26 +54,56 @@ export default function Index() {
       <section id="team" className="py-24 border-t border-border/40">
         <div className="container max-w-5xl mx-auto">
           <p className="font-mono text-xs text-foreground/40 uppercase tracking-widest mb-3">
-            Состав
+            Состав · CS2
           </p>
           <h2 className="text-4xl md:text-5xl font-sentient mb-16">
             Наша <i className="font-light">команда</i>
           </h2>
-          <div className="divide-y divide-border/40">
-            {team.map((player) => (
+
+          <div className="divide-y divide-border/40 mb-10">
+            {team.map((player, i) => (
               <div
                 key={player.nick}
-                className="flex items-center justify-between py-6 group hover:pl-2 transition-all duration-300"
+                className="flex items-center justify-between py-5 group hover:pl-2 transition-all duration-300"
               >
-                <div className="flex items-center gap-6">
-                  <span className="font-mono text-xs text-foreground/40 w-6">{player.country}</span>
+                <div className="flex items-center gap-5">
+                  <span className="font-mono text-xs text-foreground/30 w-5">{i + 1}</span>
+                  <span className="text-xl">{player.country}</span>
                   <span className="text-2xl md:text-3xl font-sentient group-hover:text-primary transition-colors duration-300">
                     {player.nick}
                   </span>
                 </div>
-                <span className="font-mono text-sm text-foreground/40 uppercase">
-                  {player.role}
-                </span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-sm text-foreground/40 uppercase hidden sm:block">
+                    {player.role}
+                  </span>
+                  <span className="font-mono text-xs border border-primary/40 text-primary px-2 py-0.5">
+                    LVL {player.lvl}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-mono text-xs text-foreground/30 uppercase tracking-widest mb-4">Запасные</p>
+          <div className="divide-y divide-border/20">
+            {bench.map((player) => (
+              <div
+                key={player.nick}
+                className="flex items-center justify-between py-4 opacity-50 hover:opacity-80 transition-opacity"
+              >
+                <div className="flex items-center gap-5">
+                  <span className="text-xl">{player.country}</span>
+                  <span className="text-xl font-sentient">{player.nick}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-sm text-foreground/40 uppercase hidden sm:block">
+                    {player.role}
+                  </span>
+                  <span className="font-mono text-xs border border-border/40 text-foreground/40 px-2 py-0.5">
+                    LVL {player.lvl}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -87,13 +122,15 @@ export default function Index() {
           <div className="border border-primary/40 p-10 flex flex-col md:flex-row items-center justify-between gap-6 bg-primary/5">
             <div>
               <p className="font-mono text-xs text-foreground/40 uppercase mb-2">Генеральный партнёр</p>
-              <h3 className="text-4xl font-sentient text-primary">VAN WIN</h3>
-              <p className="font-mono text-sm text-foreground/60 mt-2 max-w-sm">
+              <h3 className="text-5xl font-bold tracking-tight mt-1 mb-3">
+                <span className="text-foreground">1</span><span className="text-primary">win</span>
+              </h3>
+              <p className="font-mono text-sm text-foreground/60 max-w-sm">
                 Официальный партнёр организации 1337. Вместе мы строим будущее киберспорта.
               </p>
             </div>
-            <div className="w-20 h-20 border border-primary/40 flex items-center justify-center">
-              <span className="font-mono text-primary text-xl font-bold">VW</span>
+            <div className="w-20 h-20 border border-primary/40 flex items-center justify-center bg-background/60">
+              <span className="font-bold text-2xl"><span className="text-foreground">1</span><span className="text-primary">w</span></span>
             </div>
           </div>
         </div>
@@ -125,7 +162,7 @@ export default function Index() {
         <div className="container max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="font-mono text-sm text-foreground/40">© 2025 1337 — Киберспорт</span>
           <span className="font-mono text-xs text-foreground/30 uppercase">
-            Партнёр: Van Win
+            Партнёр: 1win
           </span>
         </div>
       </footer>

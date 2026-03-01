@@ -1,25 +1,10 @@
-export const Logo = (props: React.SVGProps<SVGSVGElement>) => {
+export const Logo = ({ className }: { className?: string }) => {
   return (
-    <svg
-      viewBox="0 0 120 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      {/* 1337 text logo */}
-      <text
-        x="0"
-        y="26"
-        fontFamily="'Courier New', monospace"
-        fontSize="28"
-        fontWeight="bold"
-        fill="white"
-        letterSpacing="-1"
-      >
-        1337
-      </text>
-      {/* Orange accent underline */}
-      <rect x="0" y="29" width="90" height="2" fill="hsl(var(--primary))" />
-    </svg>
+    <img
+      src="https://cdn.poehali.dev/projects/696b1839-4c78-4b84-97ab-9b6fc62bfc06/bucket/3e2497ae-045e-4ed6-bfca-30ab6b0760c4.png"
+      alt="1337"
+      className={className}
+      style={{ objectFit: "contain" }}
+    />
   );
 };
